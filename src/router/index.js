@@ -24,15 +24,10 @@ const routes = [
     component: CategoryView,
     meta: { requiresAuth: true },
   },
-  {
-    path: "/about",
-    name: "about",
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
-  },
 ];
 
 const router = new VueRouter({
+  mode: "history",
   routes,
 });
 
@@ -41,14 +36,14 @@ router.beforeEach((to, from, next) => {
 
   if (to.matched.some((record) => record.meta.requiresAuth)) {
     if (!isAuthenticated) {
-      next("/");
+      next("/"); // Redireciona para a página de login se não estiver autenticado
     } else {
-      next();
+      next(); // Permite a navegação
     }
   } else if (to.path === "/" && isAuthenticated) {
-    next("/categorias");
+    next("/categorias"); // Se já estiver autenticado, redireciona para '/categorias'
   } else {
-    next();
+    next(); // Permite a navegação
   }
 });
 

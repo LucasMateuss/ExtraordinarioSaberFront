@@ -35,11 +35,11 @@ export default {
         return {
             email: '',
             password: ''
-        }; // <-- Esta linha está correta, termina o objeto `return`
-    }, // <-- Certifique-se de que há uma vírgula aqui se houver métodos ou propriedades adicionais
+        };
+    },
 
     methods: {
-        async logar() { // <-- Certifique-se de que a palavra-chave `async` é usada corretamente
+        async logar() {
             try {
                 const response = await api.post('/login', {
                     email: this.email,
@@ -50,13 +50,12 @@ export default {
                 this.$store.commit('setToken', response.data.token);
                 this.$store.commit('setUser', response.data.user);
 
-                console.log('Login successful, redirecting to /categorias');
+                console.log('Login bem-sucedido, redirecionando para /categorias');
                 this.$router.push('/categorias');
             } catch (error) {
                 console.error('Erro durante o login:', error);
             }
         }
-    } // Certifique-se de que não há vírgula extra aqui se este for o final do objeto `export default`
+    }
 };
-
 </script>

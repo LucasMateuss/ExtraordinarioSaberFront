@@ -57,7 +57,11 @@ export default {
     methods: {
         async carregarCategorias() {
             try {
-                const response = await api.get('/categoria');
+                const response = await api.get('/categoria', {
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    }
+                });
                 this.categorias = response.data;
             } catch (error) {
                 console.error('Erro ao carregar categorias:', error);
@@ -67,9 +71,17 @@ export default {
         async salvarCategoria() {
             try {
                 if (this.categoria.id_categoria) {
-                    await api.put(`/categoria/${this.categoria.id_categoria}`, this.categoria);
+                    await api.put(`/categoria/${this.categoria.id_categoria}`, this.categoria, {
+                        headers: {
+                            'Authorization': `Bearer ${localStorage.getItem('token')}`
+                        }
+                    });
                 } else {
-                    await api.post('/categoria', this.categoria);
+                    await api.post('/categoria', this.categoria, {
+                        headers: {
+                            'Authorization': `Bearer ${localStorage.getItem('token')}`
+                        }
+                    });
                 }
                 this.carregarCategorias();
                 this.resetarFormulario();
@@ -84,7 +96,11 @@ export default {
 
         async deletarCategoria(id_categoria) {
             try {
-                await api.delete(`/categoria/${id_categoria}`);
+                await api.delete(`/categoria/${id_categoria}`, {
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    }
+                });
                 this.carregarCategorias();
                 this.resetarFormulario();
             } catch (error) {
