@@ -47,7 +47,7 @@ export default {
                 });
 
                 console.log('Registro realizado com sucesso!', response.data);
-                this.$router.push('/');  // Redireciona para a página inicial após o registro
+                this.$router.push('/');
             } catch (error) {
                 console.error('Erro durante o registro:', error.response?.data?.message || error.message);
             }

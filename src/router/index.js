@@ -36,14 +36,14 @@ router.beforeEach((to, from, next) => {
 
   if (to.matched.some((record) => record.meta.requiresAuth)) {
     if (!isAuthenticated) {
-      next("/"); // Redireciona para a página de login se não estiver autenticado
+      next("/");
     } else {
-      next(); // Permite a navegação
+      next();
     }
   } else if (to.path === "/" && isAuthenticated) {
-    next("/categorias"); // Se já estiver autenticado, redireciona para '/categorias'
+    next("/categorias");
   } else {
-    next(); // Permite a navegação
+    next();
   }
 });
 
