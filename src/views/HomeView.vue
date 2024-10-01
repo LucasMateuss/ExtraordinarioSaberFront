@@ -10,15 +10,17 @@
                             </v-toolbar>
                             <v-card-text>
                                 <v-form>
-                                    <v-text-field label="E-mail" name="email" prepend-icon="mdi-account"
+                                    <v-text-field v-model="email" label="E-mail" name="email" prepend-icon="mdi-account"
                                         type="email"></v-text-field>
-                                    <v-text-field label="Senha" name="password" prepend-icon="mdi-lock"
-                                        type="password"></v-text-field>
-                                    <v-btn color="primary" block>Login</v-btn>
+                                    <v-text-field v-model="password" label="Senha" name="password"
+                                        prepend-icon="mdi-lock" type="password"></v-text-field>
+                                    <v-btn color="primary" block @click="logar">
+                                        Login
+                                    </v-btn>
                                 </v-form>
                             </v-card-text>
                             <v-card-actions>
-                                <v-spacer></v-spacer> <!-- Empurra o botão para a direita -->
+                                <v-spacer></v-spacer>
                                 <v-btn text @click="$router.push('/register')">
                                     Ir para cadastro
                                 </v-btn>
@@ -57,7 +59,7 @@ export default {
                 console.log('Login bem-sucedido, redirecionando para /categorias');
                 this.$router.push('/categorias');
             } catch (error) {
-                console.error('Erro durante o login:', error);
+                console.error('Erro durante o login:', error.response?.data?.message || error.message);
             }
         }
     }

@@ -11,11 +11,13 @@
                             </v-toolbar>
                             <v-card-text>
                                 <v-form>
-                                    <v-text-field label="E-mail" name="email" prepend-icon="mdi-account"
+                                    <v-text-field v-model="email" label="E-mail" name="email" prepend-icon="mdi-account"
                                         type="email"></v-text-field>
-                                    <v-text-field label="Senha" name="password" prepend-icon="mdi-lock"
-                                        type="password"></v-text-field>
-                                    <v-btn color="primary" block>Cadastrar</v-btn>
+                                    <v-text-field v-model="password" label="Senha" name="password"
+                                        prepend-icon="mdi-lock" type="password"></v-text-field>
+                                    <v-btn color="primary" block @click="register">
+                                        Cadastrar
+                                    </v-btn>
                                 </v-form>
                             </v-card-text>
                         </v-card>
