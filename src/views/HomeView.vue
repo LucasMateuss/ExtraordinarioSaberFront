@@ -58,7 +58,6 @@ export default {
                 this.$store.commit('setToken', response.data.token);
                 this.$store.commit('setUser', response.data.user);
 
-                console.log('Login bem-sucedido, redirecionando para /categorias');
                 this.$router.push('/categorias');
             } catch (error) {
                 console.error('Erro durante o login:', error.response?.data?.message || error.message);

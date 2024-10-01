@@ -90,10 +90,6 @@ export default {
             }
         },
 
-        editarCategoria(cat) {
-            this.categoria = { ...cat };
-        },
-
         async deletarCategoria(id_categoria) {
             try {
                 await api.delete(`/categoria/${id_categoria}`, {
