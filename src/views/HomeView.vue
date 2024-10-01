@@ -47,9 +47,11 @@ export default {
     methods: {
         async logar() {
             try {
-                const response = await api.post('/login', {
+                const response = await axios.post('/login', {
                     email: this.email,
                     password: this.password
+                }, {
+                    timeout: 50000
                 });
 
                 localStorage.setItem('token', response.data.token);
