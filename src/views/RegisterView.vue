@@ -41,7 +41,7 @@ export default {
     methods: {
         async register() {
             try {
-                const response = await axios.post('http://localhost:3000/token/register', {
+                const response = await axios.post('/token/register', {
                     email: this.email,
                     password: this.password
                 });
