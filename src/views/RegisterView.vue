@@ -15,8 +15,6 @@
                                         type="email"></v-text-field>
                                     <v-text-field label="Senha" name="password" prepend-icon="mdi-lock"
                                         type="password"></v-text-field>
-                                    <v-text-field label="Confirme sua senha" name="confirmPassword"
-                                        prepend-icon="mdi-lock" type="password"></v-text-field>
                                     <v-btn color="primary" block>Cadastrar</v-btn>
                                 </v-form>
                             </v-card-text>
