@@ -1,4 +1,5 @@
 <template>
+    <!-- Layout similar ao da tela de login -->
     <v-app id="inspire">
         <v-content>
             <v-container fluid fill-height>
@@ -10,15 +11,15 @@
                             </v-toolbar>
                             <v-card-text>
                                 <v-form>
-                                    <v-text-field name="email" label="Email" type="text" v-model="email"></v-text-field>
-                                    <v-text-field id="password" name="senha" label="Senha" type="password"
-                                        v-model="password"></v-text-field>
+                                    <v-text-field label="E-mail" name="email" prepend-icon="mdi-account"
+                                        type="email"></v-text-field>
+                                    <v-text-field label="Senha" name="password" prepend-icon="mdi-lock"
+                                        type="password"></v-text-field>
+                                    <v-text-field label="Confirme sua senha" name="confirmPassword"
+                                        prepend-icon="mdi-lock" type="password"></v-text-field>
+                                    <v-btn color="primary" block>Cadastrar</v-btn>
                                 </v-form>
                             </v-card-text>
-                            <v-card-actions>
-                                <v-spacer></v-spacer>
-                                <v-btn color="primary" @click="register()">Registrar</v-btn>
-                            </v-card-actions>
                         </v-card>
                     </v-flex>
                 </v-layout>
