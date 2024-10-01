@@ -47,7 +47,7 @@ export default {
     methods: {
         async logar() {
             try {
-                const response = await axios.post('/login', {
+                const response = await api.post('/login', {
                     email: this.email,
                     password: this.password
                 }, {
