@@ -3,7 +3,7 @@ import router from "../router/index.js";
 import store from "@/store";
 
 const api = axios.create({
-  baseURL: process.env.VUE_APP_API_URL || "http://localhost:3000",
+  baseURL: "https://extraordinariosaberback.onrender.com",
   timeout: 10000,
 });
 
