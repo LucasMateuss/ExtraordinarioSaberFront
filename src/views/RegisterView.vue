@@ -42,7 +42,7 @@ export default {
     methods: {
         async register() {
             try {
-                const response = await axios.post('/token/register', {
+                const response = await axios.post('/register', {
                     email: this.email,
                     password: this.password
                 });
